@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:destroy]
 
   # GET /addresses
   # GET /addresses.json
@@ -57,7 +58,7 @@ class AddressesController < ApplicationController
   def destroy
     @address.destroy
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: 'Address was successfully destroyed.' }
+      format.html { redirect_to @customer, notice: 'Address was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,6 +67,11 @@ class AddressesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_address
       @address = Address.find(params[:id])
+    end
+
+    def set_customer
+      @customer = @address.customer
+      puts "Customer: #{@customer}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

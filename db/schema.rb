@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_190408) do
+ActiveRecord::Schema.define(version: 2019_05_15_191805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,24 @@ ActiveRecord::Schema.define(version: 2019_05_15_190408) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
+  create_table "packages", force: :cascade do |t|
+    t.boolean "is_shipped"
+    t.date "ship_date"
+    t.bigint "shipping_company_id"
+    t.decimal "charged"
+    t.decimal "cost"
+    t.decimal "fee"
+    t.decimal "weight"
+    t.string "size"
+    t.string "tracking"
+    t.text "notes"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_packages_on_order_id"
+    t.index ["shipping_company_id"], name: "index_packages_on_shipping_company_id"
+  end
+
   create_table "shipping_companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -66,4 +84,6 @@ ActiveRecord::Schema.define(version: 2019_05_15_190408) do
   add_foreign_key "addresses", "customers"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "customers"
+  add_foreign_key "packages", "orders"
+  add_foreign_key "packages", "shipping_companies"
 end

@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Package</h1>
+
+<div>
+  <strong>Order ID:</strong>
+  <%= @package.order.id %>
+</div>
+
+<div>
+  <strong>Is shipped:</strong>
+  <%= @package.is_shipped %>
+</div>
+
+<div <%= @package.is_shipped ? "" : "hidden" %>>
+  <strong>Ship date:</strong>
+  <%= @package.ship_date %>
+</div>
+
+<div>
+  <strong>Shipping company:</strong>
+  <%= @package.shipping_company.name %>
+</div>
+
+<div>
+  <strong>Charged:</strong>
+  <%= @package.charged %>
+</div>
+
+<div>
+  <strong>Cost:</strong>
+  <%= @package.cost %>
+</div>
+
+<div>
+  <strong>Fee:</strong>
+  <%= @package.fee %>
+</div>
+
+<div>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</div>
+
+<div>
+  <strong>Size:</strong>
+  <%= @package.size %>
+</div>
+
+<div>
+  <strong>Tracking:</strong>
+  <%= @package.tracking %>
+</div>
+
+<div>
+  <strong>Notes:</strong>
+  <%= @package.notes %>
+</div>
+
+<div>
+  <%= link_to 'Edit', edit_package_path(@package) %> |
+  <%= link_to 'Back', @package.order %>
+</div>

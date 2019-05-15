@@ -38,7 +38,7 @@
       <th>Quantity</th>
       <th>Unit Price</th>
       <th>Total</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -58,3 +58,45 @@
 </table>
 
 <%= link_to 'New Item', new_order_item_path(id: @order.id) %>
+
+<br></br>
+
+<h2>Packages</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Is Shipped?</th>
+      <th>Ship Date</th>
+      <th>Company</th>
+      <th>Tracking</th>
+      <th>Charged Customer</th>
+      <th>Packing Fee</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.packages.each do |package| %>
+      <tr>
+        <td><%= package.is_shipped %></td>
+        <% if package.is_shipped %>
+          <td><%= package.ship_date %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><%= package.shipping_company.name %></td>
+        <td><%= package.tracking %></td>
+        <td><%= package.charged %></td>
+        <td><%= package.fee %></td>
+        <td><%= package.charged + package.fee %></td>
+        <td><%= link_to 'Show', package %></td>
+        <td><%= link_to 'Edit', edit_package_path(package) %></td>
+        <td><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Package', new_package_path(id: @order.id) %>

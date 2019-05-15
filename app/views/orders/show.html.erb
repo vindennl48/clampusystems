@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Order</h1>
+
+<div>
+  <strong>Order ID:</strong>
+  <%= @order.id %>
+</div>
+
+<div>
+  <strong>Customer:</strong>
+  <%= @order.customer.name %>
+</div>
+
 <div>
   <strong>Process date:</strong>
   <%= @order.process_date %>
@@ -8,11 +20,6 @@
 <div>
   <strong>Expected ship date:</strong>
   <%= @order.expected_ship_date %>
-</div>
-
-<div>
-  <strong>Customer:</strong>
-  <%= @order.customer.name %>
 </div>
 
 <div>

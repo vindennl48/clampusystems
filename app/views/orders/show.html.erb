@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <strong>Process date:</strong>
+  <%= @order.process_date %>
+</div>
+
+<div>
+  <strong>Expected ship date:</strong>
+  <%= @order.expected_ship_date %>
+</div>
+
+<div>
+  <strong>Customer:</strong>
+  <%= @order.customer.name %>
+</div>
+
+<div>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', @order.customer %>
+</div>

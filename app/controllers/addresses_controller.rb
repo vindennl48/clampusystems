@@ -71,7 +71,6 @@ class AddressesController < ApplicationController
 
     def set_customer
       @customer = @address.customer
-      puts "Customer: #{@customer}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

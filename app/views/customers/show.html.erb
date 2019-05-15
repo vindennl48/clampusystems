@@ -27,6 +27,8 @@
   <%= link_to 'Back', customers_path %>
 </div>
 
+<br></br>
+
 <h2>Addresses</h2>
 
 <table>
@@ -49,3 +51,32 @@
 </table>
 
 <%= link_to 'New Address', new_address_path(id: @customer.id) %>
+
+<br></br>
+
+<h2>Orders</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Process Date</th>
+      <th>Expected Ship Date</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.process_date %></td>
+        <td><%= order.expected_ship_date %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Order', new_order_path(id: @customer.id) %>

@@ -35,5 +35,12 @@ h3 { font-size: 18.7px; }
 h4 { font-size: 16px; }
 
 table {
-  text-align: center;
+  text-align:  center;
+  width:       1px;
+  white-space: nowrap;
+
+  td {
+    padding: 0px 7px;
+    border:  1px solid #aaa;
+  }
 }

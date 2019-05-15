@@ -26,3 +26,35 @@
   <%= link_to 'Edit', edit_order_path(@order) %> |
   <%= link_to 'Back', @order.customer %>
 </div>
+
+<br></br>
+
+<h2>Order Items</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.unit_price %></td>
+        <td><%= item.quantity * item.unit_price %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_order_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Item', new_order_item_path(id: @order.id) %>

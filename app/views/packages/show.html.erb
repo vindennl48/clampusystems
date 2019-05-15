@@ -2,60 +2,54 @@
 
 <h1>Package</h1>
 
-<div>
-  <strong>Order ID:</strong>
-  <%= @package.order.id %>
-</div>
-
-<div>
-  <strong>Is shipped:</strong>
-  <%= @package.is_shipped %>
-</div>
-
-<div <%= @package.is_shipped ? "" : "hidden" %>>
-  <strong>Ship date:</strong>
-  <%= @package.ship_date %>
-</div>
-
-<div>
-  <strong>Shipping company:</strong>
-  <%= @package.shipping_company.name %>
-</div>
-
-<div>
-  <strong>Charged:</strong>
-  <%= @package.charged %>
-</div>
-
-<div>
-  <strong>Cost:</strong>
-  <%= @package.cost %>
-</div>
-
-<div>
-  <strong>Fee:</strong>
-  <%= @package.fee %>
-</div>
-
-<div>
-  <strong>Weight:</strong>
-  <%= @package.weight %>
-</div>
-
-<div>
-  <strong>Size:</strong>
-  <%= @package.size %>
-</div>
-
-<div>
-  <strong>Tracking:</strong>
-  <%= @package.tracking %>
-</div>
-
-<div>
-  <strong>Notes:</strong>
-  <%= @package.notes %>
-</div>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Order ID:</strong></td>
+      <td><%= @package.order.id %></td>
+    </tr>
+    <tr>
+      <td><strong>Is shipped:</strong></td>
+      <td><%= @package.is_shipped %></td>
+    </tr>
+    <tr <%= @package.is_shipped ? "" : "hidden" %>>
+      <td><strong>Ship date:</strong></td>
+      <td><%= @package.ship_date %></td>
+    </tr>
+    <tr>
+      <td><strong>Shipping company:</strong></td>
+      <td><%= @package.shipping_company.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Charged:</strong></td>
+      <td><%= @package.charged %></td>
+    </tr>
+    <tr>
+      <td><strong>Cost:</strong></td>
+      <td><%= @package.cost %></td>
+    </tr>
+    <tr>
+      <td><strong>Fee:</strong></td>
+      <td><%= @package.fee %></td>
+    </tr>
+    <tr>
+      <td><strong>Weight:</strong></td>
+      <td><%= @package.weight %></td>
+    </tr>
+    <tr>
+      <td><strong>Size:</strong></td>
+      <td><%= @package.size %></td>
+    </tr>
+    <tr>
+      <td><strong>Tracking:</strong></td>
+      <td><%= @package.tracking %></td>
+    </tr>
+    <tr>
+      <td><strong>Notes:</strong></td>
+      <td><%= @package.notes %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <%= link_to 'Edit', edit_package_path(@package) %> |

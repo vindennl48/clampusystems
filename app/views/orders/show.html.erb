@@ -2,25 +2,27 @@
 
 <h1>Order</h1>
 
-<div>
-  <strong>Order ID:</strong>
-  <%= @order.id %>
-</div>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Order ID:</strong></td>
+      <td><%= @order.id %></td>
+    </tr>
+    <tr>
+      <td><strong>Customer:</strong></td>
+      <td><%= @order.customer.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Process date:</strong></td>
+      <td><%= @order.process_date %></td>
+    </tr>
 
-<div>
-  <strong>Customer:</strong>
-  <%= @order.customer.name %>
-</div>
-
-<div>
-  <strong>Process date:</strong>
-  <%= @order.process_date %>
-</div>
-
-<div>
-  <strong>Expected ship date:</strong>
-  <%= @order.expected_ship_date %>
-</div>
+    <tr>
+      <td><strong>Expected ship date:</strong></td>
+      <td><%= @order.expected_ship_date %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <%= link_to 'Edit', edit_order_path(@order) %> |

@@ -13,25 +13,26 @@
 
   <%= form.hidden_field :order_id %>
 
-  <div class="field">
-    <strong>Name: </strong>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <strong>Quantity: </strong>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <strong>Unit Price: </strong>
-    <%= form.text_field :unit_price %>
-  </div>
-
-  <div class="field">
-    <strong>Details: </strong>
-    <%= form.text_area :details %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr class="field">
+        <td><strong>Name: </strong></td>
+        <td><%= form.text_field :name %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Quantity: </strong></td>
+        <td><%= form.number_field :quantity %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Unit Price: </strong></td>
+        <td><%= form.text_field :unit_price %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Details: </strong></td>
+        <td><%= form.text_area :details %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

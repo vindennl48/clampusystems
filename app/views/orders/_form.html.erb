@@ -13,15 +13,19 @@
 
   <%= form.hidden_field :customer_id %>
 
-  <div class="field">
-    <strong>Process Date: </strong>
-    <%= form.date_select :process_date %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr class="field">
+        <td><strong>Process Date: </strong></td>
+        <td><%= form.date_select :process_date %></td>
+      </tr>
 
-  <div class="field">
-    <strong>Expected Ship Date: </strong>
-    <%= form.date_select :expected_ship_date %>
-  </div>
+      <tr class="field">
+        <td><strong>Expected Ship Date: </strong></td>
+        <td><%= form.date_select :expected_ship_date %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

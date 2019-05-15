@@ -2,30 +2,30 @@
 
 <h1>Order Item</h1>
 
-<div>
-  <strong>Order ID:</strong>
-  <%= @order_item.order.id %>
-</div>
-
-<div>
-  <strong>Name:</strong>
-  <%= @order_item.name %>
-</div>
-
-<div>
-  <strong>Quantity:</strong>
-  <%= @order_item.quantity %>
-</div>
-
-<div>
-  <strong>Unit price:</strong>
-  <%= @order_item.unit_price %>
-</div>
-
-<div>
-  <strong>Details:</strong>
-  <%= @order_item.details %>
-</div>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Order ID:</strong></td>
+      <td><%= @order_item.order.id %></td>
+    </tr>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @order_item.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Quantity:</strong></td>
+      <td><%= @order_item.quantity %></td>
+    </tr>
+    <tr>
+      <td><strong>Unit price:</strong></td>
+      <td><%= @order_item.unit_price %></td>
+    </tr>
+    <tr>
+      <td><strong>Details:</strong></td>
+      <td><%= @order_item.details %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <%= link_to 'Edit', edit_order_item_path(@order_item) %> |

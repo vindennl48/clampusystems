@@ -18,7 +18,8 @@ html {
 
 body {
   display:          grid;
-  background-color: $bg_light;
+  background-color: $bg-color;
+  padding:          15px;
 }
 
 div {
@@ -38,9 +39,77 @@ table {
   text-align:  center;
   width:       1px;
   white-space: nowrap;
+  padding:     10px;
 
   td {
-    padding: 0px 7px;
-    border:  1px solid #aaa;
+    padding:        0px 7px;
+    border:         1px solid $border-light;
+    vertical-align: top;
   }
+
+  &.table {
+    &.left {
+      text-align: left;
+    }
+    &.no-border {
+      td {
+        border: none;
+      }
+    }
+  }
+}
+
+input {
+  width:      100%;
+  padding:    2px 0px;
+  text-align: center;
+}
+textarea {
+  width:      30vw;
+  height:     20vh;
+  padding:    5px;
+  text-align: left;
+}
+select {
+  padding:         2px 5px;
+  text-align-last: center;
+
+  &.width-max {
+    width: 100%;
+  }
+}
+input, textarea, select {
+  font-family:      $font;
+  font-size:        $font-size;
+  border:           1px solid $border-light;
+  border-radius:    5px;
+  background-color: $bg-color;
+
+  &:focus {
+    outline:    none;
+    box-shadow: 0px 0px 2px $focus-color;
+  }
+
+  &[type=submit] {
+    padding: 5px;
+    width:   auto;
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+}
+
+pre {
+  font-size:   inherit;
+  color:       inherit;
+  border:      initial;
+  padding:     initial;
+  font-family: inherit;
+}
+
+//This is the banner thing at the top after saving
+#notice {
+  color:      #32592d;
+  text-align: center;
 }

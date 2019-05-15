@@ -13,55 +13,50 @@
 
   <%= form.hidden_field :order_id %>
 
-  <div class="field">
-    <strong>Is Shipped?: </strong>
-    <%= form.check_box :is_shipped %>
-  </div>
-
-  <div class="field" <%= @package.is_shipped ? "" : "hidden" %>>
-    <strong>Ship Date: </strong>
-    <%= form.date_select :ship_date %>
-  </div>
-
-  <div class="field">
-    <strong>Shipping Company: </strong>
-    <%= form.select :shipping_company_id, options_from_collection_for_select(ShippingCompany.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <strong>Charged Customer: </strong>
-    <%= form.text_field :charged %>
-  </div>
-
-  <div class="field">
-    <strong>Shipping Cost: </strong>
-    <%= form.text_field :cost %>
-  </div>
-
-  <div class="field">
-    <strong>Packing Fee: </strong>
-    <%= form.text_field :fee %>
-  </div>
-
-  <div class="field">
-    <strong>Weight: </strong>
-    <%= form.text_field :weight %>
-  </div>
-
-  <div class="field">
-    <strong>Size: </strong>
-    <%= form.text_field :size %>
-  </div>
-
-  <div class="field">
-    <strong>Tracking: </strong>
-    <%= form.text_field :tracking %>
-  </div>
-
-  <div class="field">
-    <strong>Notes: </strong>
-    <%= form.text_area :notes %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr class="field">
+        <td><strong>Is Shipped?: </strong></td>
+        <td><%= form.check_box :is_shipped %></td>
+      </tr>
+      <tr class="field" <%= @package.is_shipped ? "" : "hidden" %>>
+        <td><strong>Ship Date: </strong></td>
+        <td><%= form.date_select :ship_date %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Shipping Company: </strong></td>
+        <td><%= form.select :shipping_company_id, options_from_collection_for_select(ShippingCompany.all, :id, :name), {}, { class: "width-max" } %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Charged Customer: </strong></td>
+        <td><%= form.text_field :charged %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Shipping Cost: </strong></td>
+        <td><%= form.text_field :cost %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Packing Fee: </strong></td>
+        <td><%= form.text_field :fee %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Weight: </strong></td>
+        <td><%= form.text_field :weight %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Size: </strong></td>
+        <td><%= form.text_field :size %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Tracking: </strong></td>
+        <td><%= form.text_field :tracking %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Notes: </strong></td>
+        <td><%= form.text_area :notes %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

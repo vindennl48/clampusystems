@@ -2,25 +2,26 @@
 
 <h1>Customer</h1>
 
-<div>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</div>
-
-<div>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</div>
-
-<div>
-  <strong>Phone Number:</strong>
-  <%= @customer.phone_number %>
-</div>
-
-<div>
-  <strong>Notes:</strong>
-  <%= @customer.notes %>
-</div>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @customer.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Email:</strong></td>
+      <td><%= @customer.email %></td>
+    </tr>
+    <tr>
+      <td><strong>Phone Number:</strong></td>
+      <td><%= @customer.phone_number %></td>
+    </tr>
+    <tr>
+      <td><strong>Notes:</strong></td>
+      <td><pre><%= @customer.notes %></pre></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <%= link_to 'Edit', edit_customer_path(@customer) %> |

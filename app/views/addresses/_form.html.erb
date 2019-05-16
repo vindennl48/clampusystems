@@ -13,35 +13,34 @@
 
   <%= form.hidden_field :customer_id %>
 
-  <div>
-    <strong>Name:</strong>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <strong>Attn:</strong>
-    <%= form.text_field :attention %>
-  </div>
-
-  <div>
-    <strong>Street:</strong>
-    <%= form.text_field :street %>
-  </div>
-
-  <div>
-    <strong>Town:</strong>
-    <%= form.text_field :town %>
-  </div>
-
-  <div>
-    <strong>State:</strong>
-    <%= form.text_field :state %>
-  </div>
-
-  <div>
-    <strong>Zip:</strong>
-    <%= form.text_field :zip_code %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td><%= form.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><strong>Attn:</strong></td>
+        <td><%= form.text_field :attention %></td>
+      </tr>
+      <tr>
+        <td><strong>Street:</strong></td>
+        <td><%= form.text_field :street %></td>
+      </tr>
+      <tr>
+        <td><strong>Town:</strong></td>
+        <td><%= form.text_field :town %></td>
+      </tr>
+      <tr>
+        <td><strong>State:</strong></td>
+        <td><%= form.text_field :state %></td>
+      </tr>
+      <tr>
+        <td><strong>Zip:</strong></td>
+        <td><%= form.text_field :zip_code %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

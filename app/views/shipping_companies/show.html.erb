@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @shipping_company.name %>
-</p>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @shipping_company.name %></td>
+    </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_shipping_company_path(@shipping_company) %> |
-<%= link_to 'Back', shipping_companies_path %>
+<div>
+  <%= link_to 'Edit', edit_shipping_company_path(@shipping_company) %> |
+  <%= link_to 'Back', shipping_companies_path %>
+</div>

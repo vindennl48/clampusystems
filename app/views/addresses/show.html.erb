@@ -2,35 +2,34 @@
 
 <h1>Address</h1>
 
-<div>
-  <strong>Name:</strong>
-  <%= @address.name %>
-</div>
-
-<div>
-  <strong>Attn:</strong>
-  <%= @address.attention %>
-</div>
-
-<div>
-  <strong>Street:</strong>
-  <%= @address.street %>
-</div>
-
-<div>
-  <strong>Town:</strong>
-  <%= @address.town %>
-</div>
-
-<div>
-  <strong>State:</strong>
-  <%= @address.state %>
-</div>
-
-<div>
-  <strong>Zip:</strong>
-  <%= @address.zip_code %>
-</div>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @address.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Attn:</strong></td>
+      <td><%= @address.attention %></td>
+    </tr>
+    <tr>
+      <td><strong>Street:</strong></td>
+      <td><%= @address.street %></td>
+    </tr>
+    <tr>
+      <td><strong>Town:</strong></td>
+      <td><%= @address.town %></td>
+    </tr>
+    <tr>
+      <td><strong>State:</strong></td>
+      <td><%= @address.state %></td>
+    </tr>
+    <tr>
+      <td><strong>Zip:</strong></td>
+      <td><%= @address.zip_code %></td>
+    </tr>
+  </tbody>
+</table>
 
 <div>
   <%= link_to 'Edit', edit_address_path(@address) %> |

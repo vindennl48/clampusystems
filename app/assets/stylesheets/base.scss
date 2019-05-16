@@ -36,8 +36,10 @@ h3 { font-size: 18.7px; }
 h4 { font-size: 16px; }
 
 table {
-  text-align:  center;
+  //shrink to fit
   width:       1px;
+
+  text-align:  center;
   white-space: nowrap;
   padding:     10px;
 
@@ -48,12 +50,29 @@ table {
   }
 
   &.table {
+
+    //used for show and edit/new views
     &.left {
       text-align: left;
+
+      //shrink to fit
+      td:first-child {
+        width:       1px;
+        white-space: nowrap;
+      }
     }
+
+    //used for only edit/new views
     &.no-border {
       td {
         border: none;
+
+        //fixed size, do not adjust to browser width
+        &:last-child {
+          width:       450px;
+          white-space: nowrap;
+          display:     inline-block;
+        }
       }
     }
   }
@@ -65,7 +84,7 @@ input {
   text-align: center;
 }
 textarea {
-  width:      30vw;
+  width:      100%;
   height:     20vh;
   padding:    5px;
   text-align: left;
@@ -74,6 +93,8 @@ select {
   padding:         2px 5px;
   text-align-last: center;
 
+  //need this for all select boxes except for date-select,
+  // date-select gets squished at this value.
   &.width-max {
     width: 100%;
   }
@@ -90,6 +111,8 @@ input, textarea, select {
     box-shadow: 0px 0px 2px $focus-color;
   }
 
+  //auto-forms use input[type=submit] to submit forms for
+  // some weird reason... so here it is.
   &[type=submit] {
     padding: 5px;
     width:   auto;
@@ -100,6 +123,7 @@ input, textarea, select {
   }
 }
 
+//to display textarea input correctly on show views
 pre {
   font-size:   inherit;
   color:       inherit;

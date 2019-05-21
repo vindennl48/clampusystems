@@ -13,6 +13,10 @@
       <td><%= link_to @order.customer.name, @order.customer %></td>
     </tr>
     <tr>
+      <td><strong>Status: </strong></td>
+      <td><%= @order.active ? "Active" : "Inactive" %></td>
+    </tr>
+    <tr>
       <td><strong>Process date:</strong></td>
       <td><%= @order.process_date %></td>
     </tr>

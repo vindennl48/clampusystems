@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where(active: true)
   end
 
   # GET /orders/1
@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.customer_id = params[:id]
+    @order.active = true
   end
 
   # GET /orders/1/edit

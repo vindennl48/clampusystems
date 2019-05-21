@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :packages
 
+  attribute :active, :boolean, default: true
+
   def total
     total = 0.0
     self.order_items.each do |item|

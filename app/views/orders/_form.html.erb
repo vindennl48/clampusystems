@@ -12,14 +12,18 @@
   <% end %>
 
   <%= form.hidden_field :customer_id %>
+  <%#= form.hidden_field :active %>
 
   <table class=" table left no-border ">
     <tbody>
       <tr class="field">
+        <td><strong>Active: </strong></td>
+        <td><%= form.check_box :active %></td>
+      </tr>
+      <tr class="field">
         <td><strong>Process Date: </strong></td>
         <td><%= form.date_select :process_date %></td>
       </tr>
-
       <tr class="field">
         <td><strong>Expected Ship Date: </strong></td>
         <td><%= form.date_select :expected_ship_date %></td>

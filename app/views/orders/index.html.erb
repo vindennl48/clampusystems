@@ -7,9 +7,10 @@
     <tr>
       <th>Order ID</th>
       <th>Customer</th>
+      <th>Total</th>
       <th>Process Date</th>
       <th>Expected Ship Date</th>
-      <th>Total</th>
+      <th>Is Shipped?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +20,10 @@
       <tr>
         <td><%= order.id %></td>
         <td><%= order.customer.name %></td>
+        <td><%= number_to_currency(order.total) %></td>
         <td><%= order.process_date %></td>
         <td><%= order.expected_ship_date %></td>
-        <td><%= number_to_currency(order.total) %></td>
+        <td><%= (!order.packages.empty? && order.packages.all? {|p| p.is_shipped }) ? "Yes" : "No" %></td>
         <td><%= link_to 'View', order %></td>
         <td><%= link_to 'Remove', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

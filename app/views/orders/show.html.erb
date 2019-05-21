@@ -10,23 +10,27 @@
     </tr>
     <tr>
       <td><strong>Customer:</strong></td>
-      <td><%= @order.customer.name %></td>
+      <td><%= link_to @order.customer.name, @order.customer %></td>
     </tr>
     <tr>
       <td><strong>Process date:</strong></td>
       <td><%= @order.process_date %></td>
     </tr>
-
     <tr>
       <td><strong>Expected ship date:</strong></td>
       <td><%= @order.expected_ship_date %></td>
+    </tr>
+    <tr>
+      <td><strong>Total:</strong></td>
+      <td>
+        <%= number_to_currency(@order.total) %>
+      </td>
     </tr>
   </tbody>
 </table>
 
 <div>
-  <%= link_to 'Edit', edit_order_path(@order) %> |
-  <%= link_to 'Back', @order.customer %>
+  <%= link_to 'Edit', edit_order_path(@order) %>
 </div>
 
 <br></br>
@@ -49,11 +53,11 @@
       <tr>
         <td><%= item.name %></td>
         <td><%= item.quantity %></td>
-        <td><%= item.unit_price %></td>
-        <td><%= item.quantity * item.unit_price %></td>
-        <td><%= link_to 'Show', item %></td>
+        <td><%= number_to_currency(item.unit_price) %></td>
+        <td><%= number_to_currency(item.quantity * item.unit_price) %></td>
+        <td><%= link_to 'View', item %></td>
         <td><%= link_to 'Edit', edit_order_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -82,20 +86,16 @@
   <tbody>
     <% @order.packages.each do |package| %>
       <tr>
-        <td><%= package.is_shipped %></td>
-        <% if package.is_shipped %>
-          <td><%= package.ship_date %></td>
-        <% else %>
-          <td></td>
-        <% end %>
+        <td><%= package.is_shipped ? "Yes" : "No" %></td>
+        <td><%= package.is_shipped ? package.ship_date : "---" %></td>
         <td><%= package.shipping_company.name %></td>
         <td><%= package.tracking %></td>
-        <td><%= package.charged %></td>
-        <td><%= package.fee %></td>
-        <td><%= package.charged + package.fee %></td>
-        <td><%= link_to 'Show', package %></td>
+        <td><%= number_to_currency(package.charged) %></td>
+        <td><%= number_to_currency(package.fee) %></td>
+        <td><%= number_to_currency(package.charged + package.fee) %></td>
+        <td><%= link_to 'View', package %></td>
         <td><%= link_to 'Edit', edit_package_path(package) %></td>
-        <td><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -14,9 +14,9 @@
     <% @shipping_companies.each do |shipping_company| %>
       <tr>
         <td><%= shipping_company.name %></td>
-        <td><%= link_to 'Show', shipping_company %></td>
+        <td><%= link_to 'View', shipping_company %></td>
         <td><%= link_to 'Edit', edit_shipping_company_path(shipping_company) %></td>
-        <td><%= link_to 'Destroy', shipping_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', shipping_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

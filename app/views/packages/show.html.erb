@@ -6,35 +6,35 @@
   <tbody>
     <tr>
       <td><strong>Order ID:</strong></td>
-      <td><%= @package.order.id %></td>
+      <td><%= link_to @package.order.id, @package.order %></td>
     </tr>
     <tr>
       <td><strong>Is shipped:</strong></td>
-      <td><%= @package.is_shipped %></td>
+      <td><%= @package.is_shipped ? "Yes" : "No" %></td>
     </tr>
-    <tr <%= @package.is_shipped ? "" : "hidden" %>>
+    <tr>
       <td><strong>Ship date:</strong></td>
-      <td><%= @package.ship_date %></td>
+      <td><%= @package.is_shipped ? @package.ship_date : "---" %></td>
     </tr>
     <tr>
       <td><strong>Shipping company:</strong></td>
       <td><%= @package.shipping_company.name %></td>
     </tr>
     <tr>
-      <td><strong>Charged:</strong></td>
-      <td><%= @package.charged %></td>
+      <td><strong>Charged Customer:</strong></td>
+      <td><%= number_to_currency(@package.charged) %></td>
     </tr>
     <tr>
-      <td><strong>Cost:</strong></td>
-      <td><%= @package.cost %></td>
+      <td><strong>Actual Cost:</strong></td>
+      <td><%= number_to_currency(@package.cost) %></td>
     </tr>
     <tr>
-      <td><strong>Fee:</strong></td>
-      <td><%= @package.fee %></td>
+      <td><strong>Packing Fee:</strong></td>
+      <td><%= number_to_currency(@package.fee) %></td>
     </tr>
     <tr>
       <td><strong>Weight:</strong></td>
-      <td><%= @package.weight %></td>
+      <td><%= @package.weight %> lbs</td>
     </tr>
     <tr>
       <td><strong>Size:</strong></td>
@@ -52,6 +52,5 @@
 </table>
 
 <div>
-  <%= link_to 'Edit', edit_package_path(@package) %> |
-  <%= link_to 'Back', @package.order %>
+  <%= link_to 'Edit', edit_package_path(@package) %>
 </div>

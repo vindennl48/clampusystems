@@ -22,9 +22,9 @@
         <td><%= order_item.unit_price %></td>
         <td><%= order_item.details %></td>
         <td><%= order_item.order %></td>
-        <td><%= link_to 'Show', order_item %></td>
+        <td><%= link_to 'View', order_item %></td>
         <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
-        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

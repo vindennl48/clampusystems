@@ -5,6 +5,10 @@
 <table class=" table left ">
   <tbody>
     <tr>
+      <td><strong>Customer:</strong></td>
+      <td><%= link_to @address.customer.name, @address.customer %></td>
+    </tr>
+    <tr>
       <td><strong>Name:</strong></td>
       <td><%= @address.name %></td>
     </tr>
@@ -32,6 +36,5 @@
 </table>
 
 <div>
-  <%= link_to 'Edit', edit_address_path(@address) %> |
-  <%= link_to 'Back', @address.customer %>
+  <%= link_to 'Edit', edit_address_path(@address) %>
 </div>

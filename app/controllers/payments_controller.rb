@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:destroy]
 
   # GET /payments
   # GET /payments.json
@@ -15,6 +16,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @payment.order_id = params[:id]
   end
 
   # GET /payments/1/edit
@@ -56,7 +58,7 @@ class PaymentsController < ApplicationController
   def destroy
     @payment.destroy
     respond_to do |format|
-      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
+      format.html { redirect_to @order, notice: 'Payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,10 @@ class PaymentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_payment
       @payment = Payment.find(params[:id])
+    end
+
+    def set_order
+      @order = @payment.order
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

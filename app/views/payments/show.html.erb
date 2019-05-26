@@ -1,44 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
-</p>
+<h1>Payment</h1>
 
-<p>
-  <strong>Fee:</strong>
-  <%= @payment.fee %>
-</p>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Order ID:</strong></td>
+      <td><%= link_to @payment.order.id, @payment.order %></td>
+    </tr>
+    <tr>
+      <td><strong>Type:</strong></td>
+      <td><%= @payment.payment_type.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Amount:</strong></td>
+      <td><%= @payment.amount %></td>
+    </tr>
+    <tr>
+      <td><strong>Fee:</strong></td>
+      <td><%= @payment.fee %></td>
+    </tr>
+    <tr>
+      <td><strong>Date Due:</strong></td>
+      <td><%= @payment.date_due %></td>
+    </tr>
+    <tr>
+      <td><strong>Is Paid:</strong></td>
+      <td><%= @payment.is_paid ? "Yes" : "No" %></td>
+    </tr>
+    <tr>
+      <td><strong>Date Paid:</strong></td>
+      <td><%= @payment.date_paid %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Date due:</strong>
-  <%= @payment.date_due %>
-</p>
-
-<p>
-  <strong>Is paid:</strong>
-  <%= @payment.is_paid %>
-</p>
-
-<p>
-  <strong>Date paid:</strong>
-  <%= @payment.date_paid %>
-</p>
-
-<p>
-  <strong>Payment type:</strong>
-  <%= @payment.payment_type %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @payment.order %>
-</p>
-
-<p>
-  <strong>Credit card:</strong>
-  <%= @payment.credit_card %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<div>
+  <%= link_to 'Edit', edit_payment_path(@payment) %>
+</div>

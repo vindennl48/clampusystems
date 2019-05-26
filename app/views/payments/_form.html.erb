@@ -11,45 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
+  <%= form.hidden_field :order_id %>
 
-  <div class="field">
-    <%= form.label :fee %>
-    <%= form.text_field :fee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_due %>
-    <%= form.date_select :date_due %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_paid %>
-    <%= form.check_box :is_paid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_paid %>
-    <%= form.date_select :date_paid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :payment_type_id %>
-    <%= form.text_field :payment_type_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :order_id %>
-    <%= form.text_field :order_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :credit_card_id %>
-    <%= form.text_field :credit_card_id %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr class="field">
+        <td><strong>Type:</strong></td>
+        <td><%= form.select :payment_type_id, options_from_collection_for_select(PaymentType.all, :id, :name), {}, { class: "width-max" } %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Amount:</strong></td>
+        <td><%= form.text_field :amount %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Fee:</strong></td>
+        <td><%= form.text_field :fee %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Date Due:</strong></td>
+        <td><%= form.date_select :date_due %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Is Paid:</strong></td>
+        <td><%= form.check_box :is_paid %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Date Paid:</strong></td>
+        <td><%= form.date_select :date_paid %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

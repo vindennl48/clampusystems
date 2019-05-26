@@ -10,3 +10,13 @@ function hide_credit_card(s) {
       .hidden = true
   }
 }
+
+function hide_date_paid(s) {
+  if (s.checked) {
+    document.getElementById(s.dataset.target)
+      .hidden = false
+  } else {
+    document.getElementById(s.dataset.target)
+      .hidden = true
+  }
+}

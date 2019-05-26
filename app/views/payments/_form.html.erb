@@ -48,9 +48,9 @@
       </tr>
       <tr class="field">
         <td><strong>Is Paid:</strong></td>
-        <td><%= form.check_box :is_paid %></td>
+        <td><%= form.check_box :is_paid, {"data-target": "date_paid", onchange: "hide_date_paid(this)"} %></td>
       </tr>
-      <tr class="field">
+      <tr id="date_paid" class="field" <%= @payment.is_paid ? "" : "hidden" %>>
         <td><strong>Date Paid:</strong></td>
         <td><%= form.date_select :date_paid %></td>
       </tr>

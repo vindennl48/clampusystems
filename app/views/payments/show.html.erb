@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Fee:</strong>
+  <%= @payment.fee %>
+</p>
+
+<p>
+  <strong>Date due:</strong>
+  <%= @payment.date_due %>
+</p>
+
+<p>
+  <strong>Is paid:</strong>
+  <%= @payment.is_paid %>
+</p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @payment.date_paid %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @payment.payment_type %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @payment.order %>
+</p>
+
+<p>
+  <strong>Credit card:</strong>
+  <%= @payment.credit_card %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

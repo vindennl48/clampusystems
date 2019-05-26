@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+PaymentType.create([
+  { name: "Amazon" },
+  { name: "Check" },
+  { name: "COD" },
+  { name: "Credit Card" },
+  { name: "Terms" },
+  { name: "PayPal" },
+  { name: "Wire" },
+])
+
+
+puts "----> PaymentType entries complete."
+
+puts "----> Seeding complete!"

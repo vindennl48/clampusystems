@@ -30,6 +30,10 @@
         <%= number_to_currency(@order.total) %>
       </td>
     </tr>
+    <tr>
+      <td><strong>Notes:</strong></td>
+      <td><pre><%= @order.notes %></pre></td>
+    </tr>
   </tbody>
 </table>
 

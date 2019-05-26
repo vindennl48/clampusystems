@@ -29,31 +29,6 @@
 
 <br></br>
 
-<h2>Addresses</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customer.addresses.each do |address| %>
-      <tr>
-        <td><%= address.name %></td>
-        <td><%= link_to 'View', address %></td>
-        <td><%= link_to 'Remove', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Address', new_address_path(id: @customer.id) %>
-
-<br></br>
-
 <h2>Orders</h2>
 
 <table>
@@ -82,3 +57,56 @@
 </table>
 
 <%= link_to 'New Order', new_order_path(id: @customer.id) %>
+
+<br></br>
+
+<h2>Addresses</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.addresses.each do |address| %>
+      <tr>
+        <td><%= address.name %></td>
+        <td><%= link_to 'View', address %></td>
+        <td><%= link_to 'Remove', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Address', new_address_path(id: @customer.id) %>
+
+<br></br>
+
+<h2>Credit Cards</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last 4</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.credit_cards.each do |credit_card| %>
+      <tr>
+        <td><%= credit_card.name %></td>
+        <td><%= "...#{credit_card.number.to_s[-4..-1]}" %></td>
+        <td><%= link_to 'View', credit_card %></td>
+        <td><%= link_to 'Edit', edit_credit_card_path(credit_card) %></td>
+        <td><%= link_to 'Remove', credit_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Credit Card', new_credit_card_path(id: @customer.id) %>

@@ -1,5 +1,6 @@
 class CreditCardsController < ApplicationController
   before_action :set_credit_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:destroy]
 
   # GET /credit_cards
   # GET /credit_cards.json
@@ -15,6 +16,7 @@ class CreditCardsController < ApplicationController
   # GET /credit_cards/new
   def new
     @credit_card = CreditCard.new
+    @credit_card.customer_id = params[:id]
   end
 
   # GET /credit_cards/1/edit
@@ -56,7 +58,7 @@ class CreditCardsController < ApplicationController
   def destroy
     @credit_card.destroy
     respond_to do |format|
-      format.html { redirect_to credit_cards_url, notice: 'Credit card was successfully destroyed.' }
+      format.html { redirect_to @customer, notice: 'Credit card was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,10 @@ class CreditCardsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_credit_card
       @credit_card = CreditCard.find(params[:id])
+    end
+
+    def set_customer
+      @customer = @credit_card.customer
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

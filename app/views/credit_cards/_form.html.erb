@@ -11,30 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
+  <%= form.hidden_field :customer_id %>
 
-  <div class="field">
-    <%= form.label :security %>
-    <%= form.number_field :security %>
-  </div>
-
-  <div class="field">
-    <%= form.label :exp_date %>
-    <%= form.date_select :exp_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
+  <table class=" table left no-border ">
+    <tbody>
+      <tr class="field">
+        <td><strong>Name:</strong></td>
+        <td><%= form.text_field :name %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Number:</strong></td>
+        <td><%= form.text_field :number %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Security:</strong></td>
+        <td><%= form.number_field :security %></td>
+      </tr>
+      <tr class="field">
+        <td><strong>Exp Date:</strong></td>
+        <td><%= form.date_select :exp_date %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= form.submit %>

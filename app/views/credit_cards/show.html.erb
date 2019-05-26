@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @credit_card.number %>
-</p>
+<table class=" table left ">
+  <tbody>
+    <tr>
+      <td><strong>Customer:</strong></td>
+      <td><%= link_to @credit_card.customer.name, @credit_card.customer %></td>
+    </tr>
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= @credit_card.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Number:</strong></td>
+      <td><%= "...#{@credit_card.number.to_s[-4..-1]}" %></td>
+    </tr>
+    <tr>
+      <td><strong>Security:</strong></td>
+      <td>---</td>
+    </tr>
+    <tr>
+      <td><strong>Exp date:</strong></td>
+      <td><%= @credit_card.exp_date %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Security:</strong>
-  <%= @credit_card.security %>
-</p>
-
-<p>
-  <strong>Exp date:</strong>
-  <%= @credit_card.exp_date %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @credit_card.name %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @credit_card.customer %>
-</p>
-
-<%= link_to 'Edit', edit_credit_card_path(@credit_card) %> |
-<%= link_to 'Back', credit_cards_path %>
+<div>
+  <%= link_to 'Edit', edit_credit_card_path(@credit_card) %>
+</div>

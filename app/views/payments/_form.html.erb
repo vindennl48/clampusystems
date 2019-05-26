@@ -20,6 +20,10 @@
         <td><%= form.select :payment_type_id, options_from_collection_for_select(PaymentType.all, :id, :name), {}, { class: "width-max" } %></td>
       </tr>
       <tr class="field">
+        <td><strong>Credit Card:</strong></td>
+        <td><%= form.select :credit_card_id, options_from_collection_for_select(CreditCard.where(customer_id: @payment.order.customer.id), :id, :number), {}, { class: "width-max" } %></td>
+      </tr>
+      <tr class="field">
         <td><strong>Amount:</strong></td>
         <td><%= form.text_field :amount %></td>
       </tr>

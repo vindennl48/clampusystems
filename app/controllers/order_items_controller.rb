@@ -17,6 +17,9 @@ class OrderItemsController < ApplicationController
   def new
     @order_item = OrderItem.new
     @order_item.order_id = params[:id]
+    @order_item.name = "New Item"
+    @order_item.quantity = 1
+    @order_item.unit_price = 0.0
   end
 
   # GET /order_items/1/edit

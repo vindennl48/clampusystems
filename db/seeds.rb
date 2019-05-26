@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 PaymentType.create([
   { name: "Amazon" },
   { name: "Check" },
@@ -17,7 +16,19 @@ PaymentType.create([
   { name: "Wire" },
 ])
 
-
 puts "----> PaymentType entries complete."
 
-puts "----> Seeding complete!"
+
+ShippingCompany.create([
+  { name: "UPS" },
+  { name: "USPS" },
+  { name: "FedEX" },
+  { name: "DHL" },
+  { name: "R&L Carriers" },
+  { name: "Local Pickup" },
+])
+
+puts "----> ShippingCompany entries complete."
+
+
+puts "####> Seeding complete!"

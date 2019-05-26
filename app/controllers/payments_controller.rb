@@ -17,6 +17,8 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
     @payment.order_id = params[:id]
+    @payment.amount = @payment.order.total
+    @payment.fee = 0.0
   end
 
   # GET /payments/1/edit

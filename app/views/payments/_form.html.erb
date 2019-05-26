@@ -20,20 +20,20 @@
         <td>
           <%= form.select :payment_type_id,
             options_from_collection_for_select(PaymentType.all, :id, :name, @payment.payment_type_id),
-            {}, { class: "width-max" } %>
+            {}, { class: "width-max", "data-target": "credit_card", "data-option": 4, onchange: "hide_credit_card(this)" } %>
         </td>
       </tr>
-      <tr class="field">
+      <% if @payment.payment_type_id == 4 %>
+        <tr id="credit_card" class="field">
+      <% else %>
+        <tr id="credit_card" class="field" hidden>
+      <% end %>
         <td><strong>Credit Card:</strong></td>
         <td><%= form.select :credit_card_id, @payment.get_cards, {}, { class: "width-max" } %></td>
       </tr>
       <tr class="field">
         <td><strong>Amount:</strong></td>
-        <% if @payment.amount.nil? %>
-          <td><%= form.text_field :amount, value: @payment.order.total %></td>
-        <% else %>
-          <td><%= form.text_field :amount %></td>
-        <% end %>
+        <td><%= form.text_field :amount %></td>
       </tr>
       <tr class="field">
         <td><strong>Fee:</strong></td>

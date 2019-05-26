@@ -21,7 +21,11 @@
       </tr>
       <tr class="field">
         <td><strong>Number:</strong></td>
-        <td><%= form.text_field :number %></td>
+        <% if @credit_card.number.nil?  %>
+          <td><%= form.number_field :number %></td>
+        <% else %>
+          <td><%= "...#{credit_card.number.to_s[-4..-1]}" %></td>
+        <% end %>
       </tr>
       <tr class="field">
         <td><strong>Security:</strong></td>

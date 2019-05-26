@@ -17,6 +17,11 @@ class PackagesController < ApplicationController
   def new
     @package = Package.new
     @package.order_id = params[:id]
+    @package.charged = 0.0
+    @package.cost = 0.0
+    @package.fee = 0.0
+    @package.weight = 0.0
+    @package.size = "0x0x0"
   end
 
   # GET /packages/1/edit

@@ -17,9 +17,9 @@
     <tbody>
       <tr class="field">
         <td><strong>Is Shipped?: </strong></td>
-        <td><%= form.check_box :is_shipped %></td>
+        <td><%= form.check_box :is_shipped, {"data-target": "ship_date", onchange: "hide_ship_date(this)"} %></td>
       </tr>
-      <tr class="field" <%= @package.is_shipped ? "" : "hidden" %>>
+      <tr id="ship_date" class="field" <%= @package.is_shipped ? "" : "hidden" %>>
         <td><strong>Ship Date: </strong></td>
         <td><%= form.date_select :ship_date %></td>
       </tr>

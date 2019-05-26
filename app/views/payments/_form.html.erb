@@ -23,11 +23,14 @@
             {}, { class: "width-max", "data-target": "credit_card", "data-option": 4, onchange: "hide_credit_card(this)" } %>
         </td>
       </tr>
+      <!--
       <% if @payment.payment_type_id == 4 %>
         <tr id="credit_card" class="field">
       <% else %>
         <tr id="credit_card" class="field" hidden>
       <% end %>
+      -->
+      <tr id="credit_card" class="field" <%= @payment.payment_type_id == 4 ? "" : "hidden" %>>
         <td><strong>Credit Card:</strong></td>
         <td><%= form.select :credit_card_id, @payment.get_cards, {}, { class: "width-max" } %></td>
       </tr>
